@@ -7,6 +7,19 @@
         android:icon="@mipmap/ic_launcher"
         android:label="@string/app_name"
         android:supportsRtl="true"
-        android:theme="@style/AppTheme"></application>
+        android:theme="@style/AppTheme">
+        <service android:name="com.linhaicai.weather.service.AutoUpdateService"></service>
+        <receiver android:name="com.linhaicai.weather.receiver.AutoUpdateReceiver"></receiver>
+        <activity android:name="com.linhaicai.weather.activity.ChooseAreaActivity"
+            android:label="@string/app_name">
+        <intent-filter>
+        <action android:name="android.intent.action.MAIN"></action>
+        <category android:name="android.intent.category.LAUNCHER"></category>
+        </intent-filter>
+
+        </activity>
+<activity android:name=".activity.WeatherActivity"></activity>
+    </application>
+
 
 </manifest>
