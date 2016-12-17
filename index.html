@@ -1,0 +1,293 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <title>index.html</title>
+	
+    <meta name="keywords" content="keyword1,keyword2,keyword3">
+    <meta name="description" content="this is my page">
+    <meta name="content-type" content="text/html; charset=UTF-8">
+    
+    <!--<link rel="stylesheet" type="text/css" href="./styles.css">
+    <script type="text/javascript" src="resources/bootstrap.js"></script>
+    -->
+	<link rel="stylesheet" type="text/css" href="resources/theme-crisp/resources/theme-crisp-all.css">
+	<script type="text/javascript" src="resources/ext-all.js"></script>
+	<script type="text/javascript" src="resources/locale-zh_CN.js"></script>
+	
+	<script type="text/javascript">
+		Ext.onReady(function(){
+		//增加html语句复制
+			var e=new Ext.XTemplate(
+			"<table border{0} width{1}>",
+				"<tr>",
+					"<td>{2}</td><br>",
+					"<td>{3}</td><br>",
+					"<td>{4}</td>",
+				"</tr>",
+			"</table>"
+			);
+			e.append("test",[1,300,"我爱你","真的吗","假的"])
+			e.compile();
+			Ext.get("click").on("click",function(){
+				var v4="<a href='index.jsp'>跳主页面</a>"
+				Ext.Msg.alert("htmlEncode",Ext.util.Format.htmlEncode(v4));
+				Ext.Msg.alert("htmlEncode",v4);
+			});
+			//日历
+			/*var btn=new Ext.Button({
+				renderTo:Ext.getBody(),
+				text:"确定",
+				type:"submit",
+				handler:function(){
+					Ext.MessagerBox.alert("日期",tag);
+				}
+			});
+
+			var dp=new Ext.DatePicker({
+				renderTo:Ext.getBody(),
+				minDate:Ext.Date.parseDate("1970-10-1","Y-m-d"),
+				maxDate:Ext.Date.parseDate("2016-12-15","Y-m-d"),
+				value:Ext.Date.parseDate("2016-12-15","Y-m-d"),
+				handler:function(){
+					Ext.MessageBox.alert("日期",Ext.util.Format.date(dp.getValue(),"Y-m-d"));
+				}
+			});*/
+		
+			/*下拉框			
+			var store1 = Ext.create("Ext.data.Store", {
+			    fields: ["Name", "Value"],
+			    data: [
+			        { Name: "男", Value: 1 },
+			        { Name: "女", Value: 2 },
+			        { Name: "未知", Value: 3 }
+			    ]
+			});
+			
+			var store=new Ext.data.Store({
+				proxy:new Ext.data.HttpProxy({url:"http://localhost:8080/Day1213/demo",}),
+				reader:new Ext.data	.JsonReader({},["username","passwords"]),
+				autoLoad:true
+			});*/
+			
+			
+			
+/*			var proxy=new Ext.data.HttpProxy({url:"http://localhost:8080/Day1213/demo"});
+			var city=Ext.data.Record.create([
+				"username","password"
+			]);
+			var reader=new Ext.data.JsonReader({},Ext.data.Record.create([
+				"username","password"
+			]));下面的圈写*/
+
+			/*	
+				下拉匡获取JSON
+				var store=new Ext.data.Store({
+				proxy:new Ext.data.HttpProxy({
+				url:"http://localhost:8080/Day1213/demo",
+				getMethod:function(){return "GET";}
+				}),
+				//和fields用法差不多
+				//reader:new Ext.data.JsonReader({},Ext.data.Record.create([
+				//"username","password"
+				//])),
+				fields: ["username","password"],
+				autoLoad:true
+			});
+			var combobox=new Ext.form.ComboBox({
+				renderTo:Ext.getBody(),
+				triggerAction:"all",
+				store:store,
+				displayField:"password",
+				valueField:"username",
+				mode:"remote",
+				emptyText:"--性别--",
+				 pageSize:5
+			});
+			var btn=new Ext.Button({
+				text:"列表框的值",
+				renderTo:"test",
+				handler:function(){
+					Ext.MessageBox.alert("值","实际值:"+combobox.getValue()+":显示值:"+combobox.getRawValue());
+				}
+			});*/
+			
+			
+	/*		var cm=new Ext.grid.ColumnModel([
+				{header:"姓名",width:80,dataIndex:"username",tooltip:"这是您的姓名"},
+				{header:"密码",width:80,dataIndex:"password",tooltip:"这是您的密码"},
+				{header:"单价1",width:80,dataIndex:"price1",tooltip:"这是您的单价1"},
+				{header:"单价2",width:80,dataIndex:"price2",tooltip:"这是您的单价2"},
+				{header:"单价3",width:80,dataIndex:"price3",tooltip:"这是您的单价3"},
+				{header:"单价4",width:80,dataIndex:"price4",tooltip:"这是您的单价4",id:"price4"}
+			]);
+			var store=new Ext.data.Store({
+				proxy:new Ext.data.Proxy({
+					url:"http://localhost:8080/Day1213/demo",
+					getMethod:function(){"GET"}
+				}),
+				fields: ["username","password","price1","price2","price3","price4"],
+				autoLoad:true
+			});
+			var grid=new Ext.grid.GridPanel({
+				title:"中国公民",
+				width:600,
+				autoHeight:true,
+				cm:cm,
+				store:store,
+				renderTo:Ext.getBody(),
+				autoExpandColumn:"price4"
+			});*/
+		/*	Ext.Ajax.request({
+				url:"http://localhost:8080/Day1213/demo",
+				success:function(response,config){
+					Ext.MessageBox.alert("result",response.responseText);
+				},
+				method:"post"
+			});*/
+			
+			
+			/*
+			AJAX请求返回数据JSON自动解析		
+			Ext.Ajax.request({
+				url:"http://localhost:8080/Day1213/demo",
+				success:function(response,config){
+					var json=Ext.util.JSON.decode(response.responseText);
+					Ext.MessageBox.alert("result",json.username+"  "+json.password);
+				},
+				failure:function(){
+					Ext.MessageBox.alert("提示","失败了");
+				},
+				method:"post"
+			});*/
+			var tooBar1=new Ext.Toolbar({
+			buttons:[
+			{
+			text:"新建",
+			handler:function(){
+				Ext.MessageBox.alert("提示","新建按钮");
+			}
+			},{
+				xtype:"tbseparator"
+			},{
+				text:"打开"
+			},{
+				xtype:"tbseparator"
+			},{
+				text:"保存"
+			}]
+			});
+			var toolBar2=new Ext.Toolbar({
+				buttons:[{
+					text:"上一步"
+				},{
+					text:"下一步"
+				},"-",{
+					text:"退出"
+				}]
+			});
+			var panel=new Ext.Panel({
+				title:"最简单的panel",
+				width:400,
+				titleCollapse:true,
+				collapsible:true,
+				html:"呵呵呵呵呵呵呵",
+				renderTo:Ext.getBody(),
+
+				tools:[{
+					id:"refresh",
+					handler:function(event,toolEl,p){
+						p.getUpdater().update({url:"index.jsp",scripts:true});
+						//p.getUpdater().update(url:"inner.html", scripts: true);
+					}
+				}]
+			});
+			new Ext.Window({
+				title:"窗口",
+				width:470,
+				height:300,
+				bodyStyle:"padding:5px",
+				contentEl: "test",
+				items:[
+				  {
+                xtype: "form",
+                border: false,
+                bodyPadding: 5,
+                fieldDefaults: {
+                    labelAlign: 'right',
+                    labelWidth: 60,
+                    width: 470
+                },
+                items:[
+				 	{xtype:"textfield",fieldLabel:"姓名"},
+					{xtype:"textarea",fieldLabel:"留言"},
+					new Ext.Button({
+					text:"按钮哦",
+					handler:function(){
+						Ext.MessageBox.alert("提示","被点了");
+					}
+					}),
+					new Ext.DatePicker({})
+				]
+                }
+			]
+				
+			}).show(Ext.getBody());
+			var newWin=new Ext.Button({
+				text:"新建窗口",
+				pressed:true
+			
+			});
+	var proxy = new Ext.data.HttpProxy({url: "bill.do?m=query"});
+	var Bill = Ext.data.Record.create([
+		{name: "rec_no", type: "string", mapping: "fbillNo"},
+		{name: "rec_date", type: "string", mapping: "strFbillDate"},
+		{name: "rec_warehouse", type: "string", mapping: "fwarehouse"},
+		{name: "rec_type", type: "string", mapping: "fbilltype"},
+		{name: "rec_remark", type: "string", mapping: "fremark"}
+	]);
+	
+	var reader = new Ext.data.JsonReader({totalProperty: "totalProperty", root: "root"}, Bill)
+	
+	var store = new Ext.data.Store({
+		proxy: proxy,
+		reader: reader
+	});
+	
+	store.load({params: {start: 0, limit: 5}});
+	
+	var cm = new Ext.grid.ColumnModel([
+		{header: "单号", dataIndex: "rec_no", width: 100},
+		{header: "日期", dataIndex: "rec_date", width: 90},
+		{header: "出库类型", dataIndex: "rec_warehouse"},
+		{header: "仓库", dataIndex: "rec_type", width: 100},
+		{header: "备注", dataIndex: "rec_remark", id: "remark", 
+		renderer: function(v){
+			return Ext.util.Format.stripTags(v);
+		}}
+	]);
+	
+	var grid = new Ext.grid.GridPanel({
+		store: store,
+		cm: cm,
+		autoExpandColumn: "remark",
+		bbar: new Ext.PagingToolbar({
+			store: store,
+			pageSize: 5,
+			displayInfo: true,
+			displayMsg: "当前显示第{0}条到第{1}条，共{2}条",
+			emptyMsg: "<i>没有数据</i>"
+		})
+	});
+		});
+	</script>
+  </head>
+  
+  <body>
+  	请输入名字：<input type="text" id="username">
+    <input type="button" value="点击有惊喜" id="click">
+	<div id="test">
+		<p>dasdasdsadsadas</p>
+	</div>
+
+  </body>
+</html>
